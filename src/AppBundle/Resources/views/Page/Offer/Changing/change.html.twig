@@ -1,0 +1,9 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    {% if offer is defined and offer is not null %}
+        You just upgrade your offer to {{ dump(offer) }}
+    {% else %}
+        Sorry but you can't by this offer, maybe because it doesn't exists anymore or you already have a better offer
+    {% endif %}
+{% endblock body %}

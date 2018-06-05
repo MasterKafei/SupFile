@@ -1,0 +1,11 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    {% if folders is defined and folders is not empty %}
+        {% for folder in folders %}
+            <a href="#">{{ folder.name }}</a>
+        {% endfor %}
+    {% else %}
+        Begin to <a href="{{ path('app_folder_creation_create') }}">create a folder</a> or import a file !
+    {% endif %}
+{% endblock %}

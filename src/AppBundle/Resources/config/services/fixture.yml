@@ -1,0 +1,3 @@
+services:
+    AppBundle\DataFixtures\ORM\DataOfferFixtures:
+        tags: [doctrine.fixture.orm]

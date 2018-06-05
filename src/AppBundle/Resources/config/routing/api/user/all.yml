@@ -1,0 +1,7 @@
+app_api_user_showing:
+    resource: "showing.yml"
+    prefix: /showing/
+
+app_api_user_authentication:
+    resource: "authentication.yml"
+    prefix: /authentication/

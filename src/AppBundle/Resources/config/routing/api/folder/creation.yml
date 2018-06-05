@@ -1,0 +1,5 @@
+app_api_folder_creation_create:
+    path: /create/{token}/{name}/{parent}
+    defaults: { _controller: 'AppBundle:API\Folder\Creation:createFolder', parent: 0}
+    requirements:
+        parent: '\d+'

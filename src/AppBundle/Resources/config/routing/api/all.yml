@@ -1,0 +1,11 @@
+app_api_file:
+    resource: "file/all.yml"
+    prefix: /file/
+
+app_api_folder:
+    resource: "folder/all.yml"
+    prefix: /folder/
+
+app_api_user:
+    resource: "user/all.yml"
+    prefix: /user/

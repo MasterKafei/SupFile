@@ -1,0 +1,3 @@
+app_api_user_showing_show:
+    path: /show/{token}
+    defaults: { _controller: 'AppBundle:API\User\Showing:showUser' }

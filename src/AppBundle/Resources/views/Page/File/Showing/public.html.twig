@@ -1,0 +1,9 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    Name: {{ file.name }}<br/>
+    Owner: {{ file.owner.username }}<br/>
+    Last update:  {{ file.lastUpdate|date('d-m-Y H:i:s') }}<br/>
+    {% embed '@Layout/Widget/File/Public/base.html.twig' %}
+    {% endembed %}
+{% endblock %}

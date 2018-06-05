@@ -1,0 +1,27 @@
+app_folder_creation:
+    resource: "creation.yml"
+    prefix: /creation/
+
+app_folder_edition:
+    resource: "edition.yml"
+    prefix: /edition/
+
+app_folder_deletion:
+    resource: "deletion.yml"
+    prefix: /deletion/
+
+app_folder_listing:
+    resource: "listing.yml"
+    prefix: /listing/
+
+app_folder_showing:
+    resource: "showing.yml"
+    prefix: /showing/
+
+app_folder_publishing:
+    resource: "publishing.yml"
+    prefix: /publishing/
+
+app_folder_downloading:
+    resource: "downloading.yml"
+    prefix: /downloading/

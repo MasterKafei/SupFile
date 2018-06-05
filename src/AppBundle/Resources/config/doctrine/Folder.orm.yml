@@ -1,0 +1,43 @@
+AppBundle\Entity\Folder:
+    type: entity
+    table: null
+    inheritanceType: SINGLE_TABLE
+    repositoryClass: AppBundle\Repository\FolderRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        publicToken:
+            type: string
+            length: 255
+            nullable: true
+            unique: true
+        lastUpdate:
+            type: datetime
+    manyToOne:
+        owner:
+            targetEntity: AppBundle\Entity\User
+            inversedBy: folders
+            cascade: [persist]
+            joinColumn:
+                name: owner_id
+                referencedColumnName: id
+        parent:
+            targetEntity: AppBundle\Entity\Folder
+            inversedBy: childs
+            cascade: [persist]
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+    oneToMany:
+            childs:
+                targetEntity: AppBundle\Entity\Folder
+                mappedBy: parent
+                cascade: [persist, remove]
+    lifecycleCallbacks: {  }

@@ -1,0 +1,23 @@
+app_api_folder_creation:
+    resource: "creation.yml"
+    prefix: /creation/
+
+app_api_folder_deletion:
+    resource: "deletion.yml"
+    prefix: /deletion/
+
+app_api_folder_edition:
+    resource: "edition.yml"
+    prefix: /edition/
+
+app_api_folder_listing:
+    resource: "listing.yml"
+    prefix: /listing/
+
+app_api_folder_publishing:
+    resource: "publishing.yml"
+    prefix: /publishing/
+
+app_api_folder_showing:
+    resource: "showing.yml"
+    prefix: /showing/

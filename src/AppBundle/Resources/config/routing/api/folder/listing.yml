@@ -1,0 +1,5 @@
+app_api_folder_listing_list:
+    path: /list/{token}/{parent}
+    defaults: { _controller: 'AppBundle:API\Folder\Listing:listFolder', parent: 0 }
+    requirements:
+        parent: '\d+'

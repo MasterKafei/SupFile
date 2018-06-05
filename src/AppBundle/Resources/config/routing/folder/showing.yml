@@ -1,0 +1,15 @@
+app_folder_showing_show:
+    path: /show/{id}
+    defaults: { _controller: 'AppBundle:Folder/Showing:showFolder' }
+    requirements:
+        id: '\d+'
+
+app_folder_showing_show_root:
+    path: /show/
+    defaults: { _controller: 'AppBundle:Folder/Showing:showFolder' }
+
+app_folder_showing_show_public:
+    path: /public/{id}/{token}
+    defaults: { _controller: 'AppBundle:Folder/Showing:showPublicFolder' }
+    requirements:
+        id: '\d+'

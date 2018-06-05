@@ -1,0 +1,5 @@
+app_folder_publishing_publish:
+    path: /publish/{id}
+    defaults: { _controller: 'AppBundle:Folder/Publishing:publishFolder' }
+    requirements:
+        id: '\d+'

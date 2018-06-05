@@ -1,0 +1,19 @@
+app_file_creation:
+    resource: "creation.yml"
+    prefix: /creation/
+
+app_file_edition:
+    resource: "edition.yml"
+    prefix: /edition/
+
+app_file_deletion:
+    resource: "deletion.yml"
+    prefix: /deletion/
+
+app_file_showing:
+    resource: "showing.yml"
+    prefix: /showing/
+
+app_file_downloading:
+    resource: "downloading.yml"
+    prefix: /downloading.yml/

@@ -1,0 +1,14 @@
+.folder-item {
+    width: 100px;
+    float: left;
+}
+
+.folder-svg {
+    width: 100px;
+    height: 100px;
+}
+
+.folder-title {
+    text-align: center;
+}
+

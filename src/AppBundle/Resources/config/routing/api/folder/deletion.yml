@@ -1,0 +1,5 @@
+app_api_folder_deletion_delete:
+    path: /delete/{token}/{folder}
+    defaults: { _controller: 'AppBundle:API\Folder\Deletion:deleteFolder' }
+    requirements:
+        file: '\d+'

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% block html_html %}
+    <html>
+    {% block head_html %}
+    <head>
+        {% block head %}
+            <title>{% block title %}Supfile{% endblock %}</title>
+        {% endblock %}
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+    {% endblock %}
+
+    {% block body_html %}
+        <body>
+            {% block body %}
+
+            {% endblock %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            {% block javascripts %}
+
+            {% endblock %}
+        </body>
+    {% endblock %}
+    </html>
+{% endblock %}

@@ -1,0 +1,3 @@
+app_api_user_authentication_authenticate:
+    path: /authenticate
+    defaults: { _controller: 'AppBundle:API\User\Authentication:authenticate' }

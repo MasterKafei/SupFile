@@ -1,0 +1,22 @@
+AppBundle\Entity\APIToken:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\APITokenRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        token:
+            type: string
+            length: 255
+            unique: true
+    oneToOne:
+        user:
+            targetEntity: AppBundle\Entity\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

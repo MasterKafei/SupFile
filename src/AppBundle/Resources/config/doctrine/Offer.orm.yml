@@ -1,0 +1,21 @@
+AppBundle\Entity\Offer:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\OfferRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        price:
+            type: float
+        quota:
+            type: integer
+    oneToMany:
+        users:
+            targetEntity: AppBundle\Entity\User
+            mappedBy: offer
+            cascade: [persist]
+    lifecycleCallbacks: {}

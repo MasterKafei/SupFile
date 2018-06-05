@@ -1,0 +1,11 @@
+app_file_downloading_download:
+    path: /download/{id}
+    defaults: { _controller: 'AppBundle:File/Downloading:downloadFile' }
+    requirements:
+        id: '\d+'
+
+app_file_downloading_public:
+    path: /public/{id}/{token}
+    defaults: { _controller: 'AppBundle:File\Downloading:downloadPublicFile' }
+    requirements:
+        id: '\d+'

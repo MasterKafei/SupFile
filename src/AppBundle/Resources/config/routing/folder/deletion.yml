@@ -1,0 +1,5 @@
+app_folder_deletion_delete:
+    path: /delete/{id}
+    defaults: { _controller: 'AppBundle:Folder/Deletion:deleteFolder' }
+    requirements:
+        id: '\d+'

@@ -1,0 +1,58 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ asset('assets/css/Folder/showing/show.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    {% if folders is defined and folders is not empty %}
+        <div class="folders">
+            {% for subFolder in folders %}
+                <div class="folder-item">
+                    {% if subFolder is instanceof('AppBundle\\Entity\\File') %}
+                        <div class="folder-svg">
+                            <a href="{{ path('app_file_showing_show', {'id': subFolder.id}) }}">
+                                <img src="{{ asset('assets/image/File/Text_file.svg') }}">
+                            </a>
+                            <a href="{{ path('app_folder_deletion_delete', {'id': subFolder.id}) }}">Delete</a>
+                        </div>
+                        <div class="folder-title">{{ subFolder.name }}</div>
+                    {% else %}
+                        <div class="folder-svg">
+                            <a href="{{ path('app_folder_showing_show', {'id': subFolder.id}) }}">
+                                <img src="{{ asset('assets/image/Folder/Folder.svg') }}" width="100px;">
+                            </a>
+                            <a href="{{ path('app_folder_deletion_delete', {'id': subFolder.id}) }}">Delete</a>
+                        </div>
+                        <div class="folder-title">{{ subFolder.name }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div>
+        Create a <a href="
+        {% if folder is defined and folder is not null %}
+            {{ path('app_folder_creation_create', {'id': folder.id}) }}
+        {% else %}
+            {{ path('app_folder_creation_create_without_parent') }}
+        {% endif %}
+        ">new folder</a> or
+        <a href="
+            {% if folder is defined and folder is not null %}
+                {{ path('app_file_creation_create', {'id': folder.id}) }}
+            {% else %}
+                {{ path('app_file_creation_create_without_parent') }}
+            {% endif %}">
+            import a file
+        </a>
+        {% if folder is defined and folder is not null %}
+            {% if folder.publicToken is defined and folder.publicToken is not null %}
+                <a href="{{ path('app_folder_showing_show_public', {'id': folder.id, 'token': folder.publicToken}) }}">Get
+                    public link</a>
+            {% else %}
+                <a href="{{ path('app_folder_publishing_publish', {'id': folder.id}) }}">Publish folder</a>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}

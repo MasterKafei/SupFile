@@ -1,0 +1,5 @@
+app_api_file_listing_list:
+    path: /list/{token}/{parent}
+    defaults: { _controller: 'AppBundle:API\File\Listing:listFile', parent: 0 }
+    requirements:
+        parent: '\d+'

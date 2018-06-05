@@ -1,0 +1,2 @@
+app_user_authentication_google_check:
+    path: /check/

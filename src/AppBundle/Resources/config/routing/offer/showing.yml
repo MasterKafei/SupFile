@@ -1,0 +1,5 @@
+app_offer_showing_show:
+    path: /show/{offer}
+    defaults: { _controller: 'AppBundle:Offer\Showing:showOffer' }
+    requirements:
+        offer: '\d+'

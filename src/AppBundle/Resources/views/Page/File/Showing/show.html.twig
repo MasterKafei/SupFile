@@ -1,0 +1,11 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    Name: {{ file.name }}<br/>
+    Owner: {{ file.owner.username }}<br/>
+    Parent folder: {% if file.parent is null %}Root{% else %}<a href="{{ path('app_folder_showing_show', {'id': file.parent.id}) }}">{{ file.parent.name }}</a>{% endif %}<br/>
+    public token: {% if file.publicToken is null %}Not defined <a href="{{ path('app_folder_publishing_publish', {'id': file.id}) }}">Publish it</a>{% else %}{{ file.publicToken }}{% endif %}<br/>
+    Last update:  {{ file.lastUpdate|date('d-m-Y H:i:s') }}<br/>
+    {% embed '@Layout/Widget/File/Default/base.html.twig' %}
+    {% endembed %}
+{% endblock %}

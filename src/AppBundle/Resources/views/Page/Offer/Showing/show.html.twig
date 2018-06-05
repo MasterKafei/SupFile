@@ -1,0 +1,6 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    {{ dump(offer) }}
+    Take this offer ? <a href="{{ path('app_offer_changing_change', {'offer': offer.id}) }}">Yes !</a>
+{% endblock body %}

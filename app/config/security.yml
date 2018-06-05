@@ -1,0 +1,51 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+            logout_on_user_change: true
+            logout:
+                path: fos_user_security_logout
+                target: /
+            anonymous:    true
+            oauth:
+                resource_owners:
+                    facebook_owners: app_user_authentication_facebook_check
+                    google_owners:  app_user_authentication_google_check
+                oauth_user_provider:
+                    service: app.security.user_provider
+                login_path: fos_user_security_login
+                use_forward: false
+                failure_path: fos_user_security_login
+                default_target_path: fos_user_profile_show
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/file/showing/public/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/file/downloading.yml/public/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/folder/showing/public/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/folder/downloading.yml/public/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
+        - { path: ^/folder/, role: ROLE_USER }
+        - { path: ^/file/, role: ROLE_USER }
+
+        - { path: ^/admin/, role: ROLE_ADMIN }

@@ -1,0 +1,5 @@
+app_api_file_edition_edit:
+    path: /edit/{token}/{file}/{name}
+    defaults: { _controller: 'AppBundle:API\File\Edition:editFile' }
+    requirements:
+        file: '\d+'

@@ -1,0 +1,3 @@
+app_home_home:
+    resource: "home.yml"
+    prefix: /

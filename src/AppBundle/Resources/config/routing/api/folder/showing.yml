@@ -1,0 +1,5 @@
+app_api_folder_showing_show:
+    path: /show/{token}/{folder}
+    defaults: { _controller: 'AppBundle:API\Folder\Showing:showFolder' }
+    requirements:
+        folder: '\d+'

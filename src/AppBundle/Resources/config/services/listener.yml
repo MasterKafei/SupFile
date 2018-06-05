@@ -1,0 +1,6 @@
+services:
+    app.listener.folder:
+        class: AppBundle\Service\Listener\FolderListener
+        tags:
+            - { name: doctrine.orm.entity_listener, entity: AppBundle\Entity\Folder, event: prePersist }
+            - { name: doctrine.orm.entity_listener, entity: AppBundle\Entity\Folder, event: preUpdate }

@@ -1,0 +1,19 @@
+{% set absolutePath = file_business.getFilePath(file) %}
+{% set uriPath = path('app_file_downloading_public', {'id': file.id, 'token': token}) %}
+{% if absolutePath is image %}
+    <img src="{{ uriPath }}">
+{% elseif absolutePath is video %}
+    <video controls>
+        <source src="{{ uriPath }}">
+    </video>
+{% elseif absolutePath is audio %}
+    <audio controls>
+        <source src="{{ uriPath }}">
+    </audio>
+{% elseif absolutePath is text %}
+    <div>
+        {{ getFileContent(absolutePath) }}
+    </div>
+{% else %}
+    An other file type
+{% endif %}

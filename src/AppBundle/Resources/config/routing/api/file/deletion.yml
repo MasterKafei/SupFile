@@ -1,0 +1,5 @@
+app_api_file_deletion_delete:
+    path: /delete/{token}/{file}
+    defaults: { _controller: 'AppBundle:API\File\Deletion:deleteFile' }
+    requirements:
+        file: '\d+'

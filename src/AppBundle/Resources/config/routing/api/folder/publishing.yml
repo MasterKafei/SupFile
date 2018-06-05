@@ -1,0 +1,5 @@
+app_api_folder_publishing_publish:
+    path: /publish/{token}/{folder}
+    defaults: { _controller: 'AppBundle:API\Folder\Publishing:publishFolder' }
+    requirements:
+        folder: '\d+'

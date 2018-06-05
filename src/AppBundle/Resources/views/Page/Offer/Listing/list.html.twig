@@ -1,0 +1,32 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body %}
+    <table>
+        <tr>
+            <th>
+               Space
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    {% for offer in offers %}
+        <tr>
+            <td>
+                {% if offer.quota <= 1000 %}
+                    {{ offer.quota }}Mo
+                {% elseif offer.quota <= 1000 * 1000 %}
+                    {{ (offer.quota/1000)|round }}Go
+                {% else %}
+                    {{ (offer.quota/(1000 * 1000))|round }}To
+                {% endif %}
+            </td>
+            <td>{{ offer.price }}€</td>
+            <td><a href="{{ path('app_offer_showing_show', {'offer': offer.id}) }}">Details</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock body %}

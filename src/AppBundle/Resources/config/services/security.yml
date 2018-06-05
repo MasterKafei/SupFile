@@ -1,0 +1,8 @@
+services:
+    app.security.user_provider:
+        class: AppBundle\Service\Security\UserProvider
+        arguments:
+            - '@fos_user.user_manager'
+            - {google_owners: googleId, facebook_owners: facebookId }
+        calls:
+            - [setContainer, ['@service_container']]

@@ -1,0 +1,23 @@
+app_api:
+    resource: "api/all.yml"
+    prefix: /api/
+
+app_file:
+    resource: "file/all.yml"
+    prefix: /file/
+
+app_folder:
+    resource: "folder/all.yml"
+    prefix: /folder/
+
+app_home:
+    resource: "home/all.yml"
+    prefix: /
+
+app_offer:
+    resource: "offer/all.yml"
+    prefix: /offer/
+
+app_user:
+    resource: "user/all.yml"
+    prefix: /user/

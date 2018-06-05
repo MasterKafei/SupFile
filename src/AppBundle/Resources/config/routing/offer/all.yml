@@ -1,0 +1,11 @@
+app_offer_changing:
+    resource: "changing.yml"
+    prefix: /changing/
+
+app_offer_listing:
+    resource: "listing.yml"
+    prefix: /listing/
+
+app_offer_showing:
+    resource: "showing.yml"
+    prefix: /showing/

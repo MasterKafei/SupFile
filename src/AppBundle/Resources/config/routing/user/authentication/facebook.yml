@@ -1,0 +1,2 @@
+app_user_authentication_facebook_check:
+    path: /check/

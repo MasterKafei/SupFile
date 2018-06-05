@@ -1,0 +1,5 @@
+app_folder_downloading_download:
+    path: /download/{id}
+    defaults: { _controller: 'AppBundle:Folder\Downloading:download' }
+    requirements:
+        id: '\d+'

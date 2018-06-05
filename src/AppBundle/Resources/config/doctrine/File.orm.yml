@@ -1,0 +1,15 @@
+AppBundle\Entity\File:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\FileRepository
+    fields:
+        pathName:
+            type: string
+            length: 255
+            nullable: false
+            unique: true
+        extension:
+            type: string
+            length: 10
+            nullable: true
+    lifecycleCallbacks: {}

@@ -1,0 +1,7 @@
+app_user_authentication_facebook:
+    resource: 'facebook.yml'
+    prefix: /facebook/
+
+app_user_authentication_google:
+    resource: 'google.yml'
+    prefix: /google/

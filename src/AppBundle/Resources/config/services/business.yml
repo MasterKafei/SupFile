@@ -1,0 +1,25 @@
+services:
+    app.business.user:
+        class: AppBundle\Service\Business\UserBusiness
+        public: true
+        parent: app.util.abstract_container_aware
+
+    app.business.folder:
+        class: AppBundle\Service\Business\FolderBusiness
+        public: true
+        parent: app.util.abstract_container_aware
+
+    app.business.file:
+        class: AppBundle\Service\Business\FileBusiness
+        public: true
+        parent: app.util.abstract_container_aware
+
+    app.business.api_token:
+        class: AppBundle\Service\Business\APITokenBusiness
+        public: true
+        parent: app.util.abstract_container_aware
+
+    app.business.api:
+        class: AppBundle\Service\Business\APIBusiness
+        public: true
+        parent: app.util.abstract_container_aware

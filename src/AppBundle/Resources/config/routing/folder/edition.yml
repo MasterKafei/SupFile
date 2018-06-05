@@ -1,0 +1,5 @@
+app_folder_edition_edit:
+    path: /edit/{id}
+    defaults: { _controller: 'AppBundle:Folder/Edition:editFolder' }
+    requirements:
+        id: '\d+'

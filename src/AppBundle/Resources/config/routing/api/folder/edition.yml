@@ -1,0 +1,5 @@
+app_api_folder_edition_edit:
+    path: /edit/{token}/{folder}/{name}
+    defaults: { _controller: 'AppBundle:API\Folder\Edition:editFolder' }
+    requirements:
+        folder: '\d+'

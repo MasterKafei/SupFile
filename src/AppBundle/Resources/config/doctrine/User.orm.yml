@@ -1,0 +1,38 @@
+AppBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        googleId:
+            type: string
+            length: 255
+            nullable: true
+        facebookId:
+            type: string
+            length: 255
+            nullable: true
+    oneToMany:
+        folders:
+            targetEntity: AppBundle\Entity\Folder
+            mappedBy: owner
+            cascade: [ persist, remove ]
+    oneToOne:
+        apiToken:
+            targetEntity: AppBundle\Entity\APIToken
+            mappedBy: user
+            cascade: [ persist, remove ]
+    manyToOne:
+        offer:
+            targetEntity: AppBundle\Entity\Offer
+            inversedBy: users
+            cascade: [persist]
+            joinColumn:
+                name: offer_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
