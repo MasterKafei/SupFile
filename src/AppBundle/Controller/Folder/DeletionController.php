@@ -12,6 +12,10 @@ class DeletionController extends Controller
         $this->get('app.business.folder')->isUserAllowedToManageFolder($folder);
 
         $em = $this->getDoctrine()->getManager();
+        foreach ($folder->getChilds() as $file) {
+            $em->remove($file);
+        }
+        $em->flush();
         $em->remove($folder);
         $em->flush();
 

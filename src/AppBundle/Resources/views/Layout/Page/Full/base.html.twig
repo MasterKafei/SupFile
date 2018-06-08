@@ -1,0 +1,8 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block body_html %}
+    <div class="row m-0 ligne">
+        {% include '@Layout/Page/Full/sidebar.html.twig' %}
+        {% block body %}{% endblock %}
+    </div>
+{% endblock body_html %}

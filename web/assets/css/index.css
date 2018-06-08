@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Comfortaa', cursive;
+	font-size: 1.3rem;
+	color: #333;
+	background-color: #f6f6f6;
+}
+
+h1 {
+	font-weight: 700;
+}
+
+a  {
+	outline: 0;
+	text-decoration: none;
+}
+
+a:hover  {
+	outline: 0;
+	text-decoration: none;	
+	
+}
+
+/* Colors */
+.bg-white {
+	background-color: #f6f6f6;
+}
+
+.navbar {
+	border-bottom: 1px solid #EEE;
+	vertical-align: middle;
+	width: 100%;
+
+
+}
+
+.navbar-nav li a {
+	width: 100%;
+	line-height: 150px;
+	margin-right: 45px;
+	text-align: center;
+	outline: 0;
+}
+
+/* SupFile header */
+.supfile-header {
+	height: 300px;
+	width: 100%;
+	font-size: 3rem;
+	background-image: url('../img/background2.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#logo {
+	height: 150px;
+	width: 250px;
+}
+
+.navbar-collapse {
+	background-color: #f6f6f6;
+}
+
+/* Price */
+.pricesrow {
+	padding-left: 25%;
+	padding-right: 25%;
+}
+
+.colprice {
+	vertical-align: middle;	
+}
+
+.squareprice {
+	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 5px 5px grey;
+	border: 3px solid black;
+	margin-top: 20px;
+	width: 70%;
+	height: 13vh;
+	background-color: #66a6ff;
+	color: #f6f6f6;
+	text-align: center;
+}
+
+.squareprice:hover, .squarepricefree:hover {
+	text-decoration: none;	
+	background-color: #233a77;
+}
+
+.squarepricefree {
+	
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 10px 5px 5px grey;
+	border: 3px solid black;
+	margin-top: 20px;
+	width: 22.5%;
+	height: 13vh;
+	background-color: #66a6ff;
+	color: #f6f6f6;
+	text-align: center;
+}
+
+.pricesize {
+	padding-top: 30px;
+	margin-top: auto;
+	margin-bottom: auto;
+}

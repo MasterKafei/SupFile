@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="nav navbar-nav pull-sm-left w-40">
+            <li class="nav-item">
+                <a class="nav-link" href="#WiS">What is SupFile ?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#WcU">Why choose us ?</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#FAQ">FAQ</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-logo mx-auto">
+            <li class="nav-item">
+                <a class="navbar-brand" href="{{ path('app_home_home_index') }}"><img id="logo" src="{{ asset('assets/img/SupFile.svg') }}"></a>
+            </li>
+        </ul>
+        <ul class="nav navbar-nav pull-sm-right w-40">
+            <li class="nav-item">
+                <a class="nav-link" href="#Prices">Prices</a>
+            </li>
+            {% set menu_items = [
+                {
+                    'route': 'app_home_home_information',
+                    'title': 'Informations'
+                },
+                {
+                    'route': 'fos_user_registration_register',
+                    'title': 'Register'
+                },
+                {
+                    'route': 'fos_user_security_login',
+                    'title': 'Login'
+                }
+            ] %}
+            {% for item in menu_items %}
+                {% include '@Layout/Widget/MenuItem/base.html.twig' with {'route': item['route'], 'title': item['title']} %}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

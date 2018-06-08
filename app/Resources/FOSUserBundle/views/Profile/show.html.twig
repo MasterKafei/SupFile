@@ -1,0 +1,30 @@
+{% extends '@Layout/Page/Full/base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/profil.css') }}">
+{% endblock %}
+
+{% block title %}{{ parent() }}Profil{% endblock %}
+
+{% block body %}
+    <div class="col-9 p-5">
+        <h1 class="text-center p-2"><u><b>Personal Informations</b></u></h1>
+        <div class="text-center mr-5 ml-5 profilsettings">
+            <div class="inform m-3">
+                <label class="titlespan" for="inputLastname">Username</label>
+                <span class="ivalue">{{ app.user.username }}</span>
+            </div>
+            <div class="inform m-3">
+                <label class="titlespan" for="inputEmail">Mail Address:</label>
+                <span class="ivalue">{{ app.user.email }}</span>
+            </div>
+            <br>
+            <div class="d-block">
+                <a class="btn btn-outline-secondary btn-lg mt-2 modify mx-auto"
+                   href="{{ path('app_folder_showing_show_root') }}">Files</a>
+                <a class="btn btn-outline-secondary btn-lg mt-2 modify mx-auto"
+                   href="{{ path('fos_user_profile_edit') }}">Modify</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

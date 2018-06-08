@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+body {
+
+	margin: 0;
+	padding: 0;
+	font-family: 'Comfortaa', cursive;
+	font-size: 1.5rem;
+	color: #333;
+	overflow-y: scroll;
+	background-color: #f6f6f6;
+	overflow-y: scroll;
+}
+
+.fa-arrow-left {
+	color: white;
+	padding-top: 40px;
+	outline: 0;
+}
+
+.info-nav-bar {
+	position: fixed;
+	padding-top: 30px;
+	height: 100vh;
+	border-right: 1px solid #66a6ff;
+	background-color: #66a6ff;
+}
+
+.logo {
+	width: 70%;
+	padding-bottom: 60px;
+}
+
+.nav-item {
+
+	text-align: center;
+	text-decoration: none;
+	padding-top: 25%;
+}
+
+.nav-item a  {
+	color: white;
+}
+
+.textcol {
+	margin-left: 25%;
+}
+
+.fa-angle-right {
+	padding-left: 15px;
+}

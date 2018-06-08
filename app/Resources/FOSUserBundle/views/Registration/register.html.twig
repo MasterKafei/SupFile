@@ -1,0 +1,47 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block title %}{{ parent() }}Registration{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/register.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="row p-5 m-0">
+    <div class="col-4">
+        <a href="{{ path('app_home_home_index') }}"><i class="fa fa-arrow-left fa-2x"></i></a>
+    </div>
+    <div class="col-4">
+        <img id="logo" src="{{ asset('assets/img/SupFile_Blanc.svg') }}">
+        {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register', 'id': 'register'},}) }}
+            <div class="form-group">
+                {{ form_widget(form.username, {'attr': {'placeholder': 'Username', 'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.email, {'attr': {'placeholder': 'Email address', 'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.plainPassword.first, {'attr': {'placeholder': 'Password', 'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.plainPassword.second, {'attr': {'placeholder': 'Confirm password', 'class': 'form-control'}}) }}
+            </div>
+            <div class="form-check termsall" align="left">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1" id="terms" style="font-size: 15px;">I accept SupFile <a id="termslink" href="Informations.html" target="_blank">terms of use</a></label>
+            </div>
+            <div class="submitb">
+                <button type="submit" id="submitb" class="btn btn-primary">Register</button>
+            </div>
+            <div class="facebooklogin">
+                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook_owners'}) }}" type="button" class="btn btn-secondary btn-facebooklogin"><i class="fab fa-facebook-square fa-lg"></i>Login with Facebook</a>
+            </div>
+            <div class="googlelogin">
+                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google_owners'}) }}" type="button" class="btn btn-secondary btn-googlelogin"><i class="fab fa-google fa-lg"></i>Login with Google</a>
+            </div>
+        {{ form_end(form) }}
+    </div>
+    <div class="col-4">
+    </div>
+</div>
+{% endblock body %}

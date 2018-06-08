@@ -1,0 +1,20 @@
+{{ form_start(form) }}
+    <div class="row m-0 file-rename-box">
+        <div class="col-2 p-0">
+            {{ form_widget(form.save) }}
+        </div>
+        <div class="col-8 p-2">
+            {{ form_widget(form.name, {'attr': {'class': 'form-control'}}) }}
+        </div>
+        <div class="col-1 p-2 box-download text-center">
+            <a href="{{ path('app_file_downloading_download', {'id': file.id}) }}" download>
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
+        <div class="col-1 p-2 box-delete text-center">
+            <a href="{{ path('app_file_deletion_delete', {'id': file.id}) }}">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </div>
+{{ form_end(form) }}

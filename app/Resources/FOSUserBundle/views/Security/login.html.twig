@@ -1,29 +1,43 @@
-{% trans_default_domain 'FOSUserBundle' %}
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends "@Layout/Page/Default/base.html.twig" %}
 
-{% block fos_user_content %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+{% block title %}{{ parent() }}Login{% endblock %}
 
-    <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin">
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-        <div class="login-container">
-            <h1>Login to Your Account</h1><br>
-            <form>
-                <label for="username">{{ 'security.login.username'|trans }}</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
-                <label for="password">{{ 'security.login.password'|trans }}</label>
-                <input type="password" id="password" name="_password" required="required" />
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                <input type="submit" class="login login-submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-            </form>
-            <div class="login-help">
-                <a href="{{ path('fos_user_registration_register') }}">Register</a> - <a href="{{ path('fos_user_resetting_request') }}">Forgot Password</a>
-                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook_owners'}) }}">Connect with facebook</a>
-                <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google_owners'}) }}">Connect with google</a>
-            </div>
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="row p-5 m-0">
+        <div class="col-4">
+            <a href="{{ path('app_home_home_index') }}"><i class="fa fa-arrow-left fa-2x"></i></a>
         </div>
-    </form>
-{% endblock fos_user_content %}
+        <div class="col-4">
+            <img id="logo" src="{{ asset('assets/img/SupFile_Blanc.svg') }}">
+            <form action="{{ path("fos_user_security_check") }}" method="post" class="form-signin" id="register">
+                {% if error %}
+                    <div class="form-group">
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <div class="form-group">
+                    <input type="text" class="form-control" id="lemail" name="_username" placeholder="Username" value="{{ last_username }}" required="required" />
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="lpassword" name="_password" required="required" placeholder="Password"/>
+                </div>
+                <div class="submitb">
+                    <button type="submit" class="btn btn-primary" id="submitb" name="_submit">Login</button>
+                </div>
+                <div class="facebooklogin">
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook_owners'}) }}" type="button" class="btn btn-secondary btn-facebooklogin"><i class="fab fa-facebook-square fa-lg"></i>Login with Facebook</a>
+                </div>
+                <div class="googlelogin">
+                    <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google_owners'}) }}" type="button" class="btn btn-secondary btn-googlelogin"><i class="fab fa-google fa-lg"></i>Login with Google</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
+{% endblock body %}

@@ -12,7 +12,13 @@ class CreationController extends Controller
     public function createFolderAction(Request $request, Folder $parent = null)
     {
         $folder = new Folder();
-        $form = $this->createForm(FolderCreationType::class, $folder);
+        if ($parent === null) {
+            $route = $this->get('router')->generate('app_folder_creation_create_without_parent');
+        } else {
+            $route = $this->get('router')->generate('app_folder_creation_create', array('id' => $parent->getId()));
+        }
+
+        $form = $this->createForm(FolderCreationType::class, $folder, array('action' => $route));
 
         $form->handleRequest($request);
 

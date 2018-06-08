@@ -15,10 +15,10 @@ class FolderCreationType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, array(
-                'label' => 'folder.name'
+                'label' => 'Name'
             ))
             ->add('save', SubmitType::class, array(
-                'label' => 'folder.submit'
+                'label' => 'Submit'
             ));
     }
 

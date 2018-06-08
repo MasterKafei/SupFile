@@ -3,7 +3,7 @@
 {% if absolutePath is image %}
     <img src="{{ uriPath }}">
 {% elseif absolutePath is video %}
-    <video controls>
+    <video class="vcontrols" controls>
         <source src="{{ uriPath }}">
     </video>
 {% elseif absolutePath is audio %}
@@ -11,7 +11,7 @@
         <source src="{{ uriPath }}">
     </audio>
 {% elseif absolutePath is text %}
-    <div>
+    <div style="color: white;">
         {{ getFileContent(absolutePath) }}
     </div>
 {% else %}

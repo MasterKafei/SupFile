@@ -1,9 +1,70 @@
 {% extends '@Layout/Page/Default/base.html.twig' %}
 
+{% block title %}{{ parent() }}{{ file.name }}{% endblock title %}
+
+{% block stylesheets %}
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+            integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{ asset('assets/css/fileview.css') }}">
+{% endblock stylesheets %}
+
 {% block body %}
-    Name: {{ file.name }}<br/>
-    Owner: {{ file.owner.username }}<br/>
-    Last update:  {{ file.lastUpdate|date('d-m-Y H:i:s') }}<br/>
-    {% embed '@Layout/Widget/File/Public/base.html.twig' %}
-    {% endembed %}
+    <div class="row m-0 rowp1 d-flex">
+        <div class="mx-auto justify-content-center align-self-center">
+            {% include '@Layout/Widget/File/Public/base.html.twig' with {'file': file} %}
+        </div>
+    </div>
+    <div class="row p-0 m-0 rowp2">
+        <div class="properties">
+            <div class="row p-0 m-0">
+                <div class="col-6 p-0 m-0">
+                    <div class="lpropelem">
+                        Name:
+                    </div>
+                </div>
+                <div class="col-6 p-0 m-0">
+                    <div class="rpropelem">
+                        {{ file.name }}
+                    </div>
+                </div>
+            </div>
+            <div class="row p-0 m-0">
+                <div class="col-6 p-0 m-0">
+                    <div class="lpropelem">
+                        Created on:
+                    </div>
+                </div>
+                <div class="col-6 p-0 m-0">
+                    <div class="rpropelem">
+                        {{ file.lastUpdate|date('d/m/y') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0 file-rename-box">
+        <div class="col-2 p-0">
+            <input type="submit" value="Rename"></input>
+        </div>
+        <div class="col-8 p-2">
+            <input type="text" class="form-control" value="folder-name">
+        </div>
+        <div class="col-1 p-2 box-download text-center">
+            <a href="">
+                <i class="fas fa-download"></i>
+            </a>
+        </div>
+        <div class="col-1 p-2 box-delete text-center">
+            <a href="">
+                <i class="fas fa-times"></i>
+            </a>
+        </div>
+    </div>
 {% endblock %}

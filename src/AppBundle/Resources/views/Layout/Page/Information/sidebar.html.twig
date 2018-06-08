@@ -1,0 +1,38 @@
+{% set information_page = false %}
+{% set policy_page = false %}
+{% set agreement_page = false %}
+{% set acceptable_use_page = false %}
+
+<div class="col-3 info-nav-bar">
+    <div class="row m-0">
+        <div class="col-3 darrow">
+            <a href="{{ path('app_home_home_index') }}"><i class="fa fa-arrow-left fa-lg"></i></a>
+        </div>
+        <div class="col-9 dlogo p-0">
+            <img class="logo" src="{{ asset('assets/img/SupFile.svg') }}">
+        </div>
+    </div>
+    <ul class="nav flex-column">
+        {% set menu_items = [
+            {
+                'route': 'app_home_home_information',
+                'title': 'Confitions of use',
+            },
+            {
+                'route': 'app_home_home_policy',
+                'title': 'Privacy Policy'
+            },
+            {
+                'route': 'app_home_home_agreement',
+                'title': 'Agreement'
+            },
+            {
+                'route': 'app_home_home_acceptable_use',
+                'title': 'Acceptable use'
+            }
+        ] %}
+        {% for items in menu_items %}
+            {% include '@Layout/Widget/MenuItem/information.html.twig' with {'route': items['route'], 'title': items['title']} %}
+        {% endfor %}
+    </ul>
+</div>

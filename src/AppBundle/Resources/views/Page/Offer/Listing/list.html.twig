@@ -1,4 +1,4 @@
-{% extends '@Layout/Page/Default/base.html.twig' %}
+{% extends '@Layout/Page/Default/information.html.twig' %}
 
 {% block body %}
     <table>
@@ -16,13 +16,7 @@
     {% for offer in offers %}
         <tr>
             <td>
-                {% if offer.quota <= 1000 %}
-                    {{ offer.quota }}Mo
-                {% elseif offer.quota <= 1000 * 1000 %}
-                    {{ (offer.quota/1000)|round }}Go
-                {% else %}
-                    {{ (offer.quota/(1000 * 1000))|round }}To
-                {% endif %}
+                {% include '@Layout/Widget/Quota/information.html.twig' with {'quota': offer.quota} %}
             </td>
             <td>{{ offer.price }}€</td>
             <td><a href="{{ path('app_offer_showing_show', {'offer': offer.id}) }}">Details</a></td>

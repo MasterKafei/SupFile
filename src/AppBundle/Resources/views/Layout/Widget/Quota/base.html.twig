@@ -1,0 +1,7 @@
+{% if quota <= 1000 %}
+    {{ quota }}Mo
+{% elseif quota <= 1000 * 1000 %}
+    {{ (quota/1000)|round }}Go
+{% else %}
+    {{ (quota/(1000 * 1000))|round }}To
+{% endif %}

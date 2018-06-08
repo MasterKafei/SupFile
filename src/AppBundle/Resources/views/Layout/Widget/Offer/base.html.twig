@@ -1,0 +1,16 @@
+<div class="col-4 colprice">
+    <a class="linkprice" href="{{ path('app_offer_changing_change', {'offer': offer.id}) }}">
+        <div class="squareprice">
+            <h1 class="pricesize">
+                {% if offer.quota <= 1000 %}
+                    {{ offer.quota }}Mo
+                {% elseif offer.quota <= 1000 * 1000 %}
+                    {{ offer.quota/1000 }}Go
+                {% else %}
+                    {{ offer.quota/(1000 * 1000) }}To
+                {% endif %}
+            </h1>
+            <span class="price">{% if offer.price == 0 %}Free{% else %}{{ offer.price }}€{% endif %}</span>
+        </div>
+    </a>
+</div>

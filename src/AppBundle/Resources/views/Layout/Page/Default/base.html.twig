@@ -3,9 +3,12 @@
     <html>
     {% block head_html %}
     <head>
+        <meta charset="UTF-8">
+
         {% block head %}
-            <title>{% block title %}Supfile{% endblock %}</title>
+            <title>{% block title %}Supfile - {% endblock %}</title>
         {% endblock %}
+        {% include '@Layout/Page/Default/stylesheets.html.twig' %}
         {% block stylesheets %}
         {% endblock %}
     </head>
@@ -13,13 +16,8 @@
 
     {% block body_html %}
         <body>
-            {% block body %}
-
-            {% endblock %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            {% block javascripts %}
-
-            {% endblock %}
+            {% block body %}{% endblock %}
+            {% block javascripts %}{% endblock %}
         </body>
     {% endblock %}
     </html>

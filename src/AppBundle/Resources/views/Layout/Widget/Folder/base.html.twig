@@ -1,0 +1,29 @@
+<a class="col-3 p-0 m-0" href="
+{% if folder is instanceof('AppBundle\\Entity\\File') %}
+    {{ path('app_file_showing_show', {'id': folder.id}) }}
+{% else %}
+    {{ path('app_folder_showing_show', {'id': folder.id}) }}
+{% endif %}
+">
+    <div class="explorer-item">
+        {% if folder is instanceof('AppBundle\\Entity\\File') %}
+            {% set absolutePath = file_business.getFilePath(folder) %}
+            {% if absolutePath is video %}
+                <i class="far fa-file-video"></i>
+            {% elseif absolutePath is image %}
+                <i class="far fa-file-image"></i>
+            {% elseif absolutePath is audio %}
+                <i class="far fa-file-audio"></i>
+            {% elseif absolutePath is text %}
+                <i class="far fa-file-alt"></i>
+            {% else %}
+                <i class="far fa-file"></i>
+            {% endif %}
+        {% else %}
+            <i class="fas fa-folder"></i>
+        {% endif %}
+        <div class="explorer-item-text">
+            <h3>{{ folder.name }}</h3>
+        </div>
+    </div>
+</a>

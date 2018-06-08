@@ -1,0 +1,29 @@
+{% extends '@Layout/Page/Default/base.html.twig' %}
+
+{% block head_html %}
+    <head>
+        <meta charset="UTF-8">
+
+        {% block head %}
+            <title>{% block title %}Supfile - {% endblock %}</title>
+        {% endblock %}
+        {% include '@Layout/Page/Information/stylesheets.html.twig' %}
+        {% block stylesheets %}
+        {% endblock %}
+    </head>
+{% endblock %}
+
+{% block body_html %}
+    <body>
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            {% include '@Layout/Page/Information/sidebar.html.twig' %}
+            <div class="col-9 textcol">
+                {% block body %}{% endblock body %}
+            </div>
+        </div>
+    </div>
+    {% block javascripts %}
+    {% endblock javascripts %}
+    </body>
+{% endblock body_html %}

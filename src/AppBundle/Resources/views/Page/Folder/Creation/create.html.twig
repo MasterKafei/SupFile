@@ -1,5 +1,17 @@
-{% extends '@Layout/Page/Default/base.html.twig' %}
-
-{% block body %}
-    {{ form(form) }}
-{% endblock %}
+{{ form_start(form) }}
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Create new Folder</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            {{ form_widget(form.name) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary modalundob" data-dismiss="modal">Cancel</button>
+            {{ form_widget(form.save, {'attr': {'class': 'btn btn-success modalsaveb', 'placeholder': 'Name your folder'}}) }}
+        </div>
+    </div>
+</div>
+{{ form_end(form) }}

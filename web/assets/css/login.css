@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+body {
+
+	margin: 0;
+	padding: 0;
+	font-family: 'Comfortaa', cursive;
+	font-size: 1.3rem;
+	background-image: url('../img/background.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	color: #333;
+}
+
+.form-check {
+	vertical-align: center;
+}
+
+.form-control {
+
+	width: 100%;
+	height: 50px;
+	border-width: 1.5px;
+	border-radius: 6px;
+	border-style: solid;
+	border-color: grey;
+
+}
+
+.fa-arrow-left {
+	
+	color: white;
+	padding-top: 52px;
+	outline: 0;
+
+}
+
+#logo {
+
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+}
+
+#register {
+	width: 400px;
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+#submitb {
+	height: 50px;
+	width: 200px;
+	display: block; 
+	margin: auto; 
+	background-color: orange; 
+	border-color: orange;
+	font-size: 20px;
+}
+
+.submitb {
+	padding-top: 30px;
+}
+
+.facebooklogin, .googlelogin {
+	padding-top: 35px;
+}
+
+.btn-secondary {
+	background-color: white;
+	font-size: 1.23rem;
+	color: #333;
+	height: 50px;
+	width: 400px;
+}
+
+/* Register Facebook */
+
+i {
+	float: left;
+	font-size: 19px;
+	margin: 5px 0px 0px 20px;
+
+}
+
+.btn-facebooklogin {
+	margin-top: 35px;
+	background-color: #3b5998;
+	color:  #ffffff;
+}
+
+.btn-facebooklogin:hover {
+  color: #fff;
+  background-color: #334d84;
+  border-color: #334d84;
+}
+
+.btn-facebooklogin:focus, .btn-facebooklogin.focus {
+  box-shadow: 0 0 0 0rem rgba(108, 117, 125, 0.5);
+}
+
+.btn-facebooklogin:not(:disabled):not(.disabled):active:focus, .btn-facebooklogin:not(:disabled):not(.disabled).active:focus,
+.show > .btn-facebooklogin.dropdown-toggle:focus  {
+	color: #fff;
+  	background-color: #334d84;
+  	border-color: #334d84;
+}
+
+/* Register Google */
+
+.btn-googlelogin {
+	background-color: #d34836;
+	color: #ffffff;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.fab .fa-google {
+	float: left;
+	vertical-align: middle;	
+}
+
+.btn-googlelogin:hover {
+  color: #fff;
+  background-color: #c44838;
+  border-color: #c44838;
+}
+
+.btn-googlelogin:focus, .btn-googlelogin.focus {
+  box-shadow: 0 0 0 0rem rgba(108, 117, 125, 0.5);
+}
+
+.btn-googlelogin:not(:disabled):not(.disabled):active:focus, .btn-googlelogin:not(:disabled):not(.disabled).active:focus,
+.show > .btn-googlelogin.dropdown-toggle:focus  {
+	color: #fff;
+  	background-color: #c44838;
+  	border-color: #c44838;
+}

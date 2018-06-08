@@ -22,6 +22,7 @@ class ShowingController extends Controller
             array(
                 'folder' => $folder,
                 'folders' => $folders,
+                'quota' => $this->get('app.business.user')->getQuota($this->getUser()),
             ));
     }
 

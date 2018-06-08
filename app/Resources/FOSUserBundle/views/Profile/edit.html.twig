@@ -1,0 +1,29 @@
+{% extends '@Layout/Page/Full/base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/profil.css') }}">
+{% endblock stylesheets %}
+
+{% block title %}{{ parent() }}Profile Settings{% endblock title %}
+
+{% block body %}
+    <div class="col-9 p-5">
+        <h1 class="text-center p-2"><u><b>Personal Informations</b></u></h1>
+            {{ form_start(form, {'class': 'text-left mr-5 ml-5'}) }}
+            <div class="form-group m-3">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group m-3">
+                {{ form_label(form.email) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group m-3">
+                {{ form_label(form.current_password) }}
+                {{ form_widget(form.current_password, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+            </div>
+            <a class="btn btn-outline-secondary btn-lg ml-3 mt-5 float-left" href="{{ path('fos_user_profile_show') }}">Cancel</a>
+            <button type="submit" class="btn btn-outline-success btn-lg mr-3 mt-5 float-right">Save</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock body %}

@@ -1,0 +1,102 @@
+<div class="col-3 pleft p-0 m-0">
+    <div class="col-3 supfile-navbar">
+        <div class="row m-0">
+            <div class="col-3 darrow m-0">
+                <a href="{{ path('app_home_home_index') }}"><i class="fa fa-arrow-left fa-lg"></i></a>
+            </div>
+            <div class="col-9 dlogo p-0">
+                <img class="logo" src="{{ asset('assets/img/SupFile.svg') }}">
+            </div>
+        </div>
+        <ul class="nav flex-column">
+            <li class="nav-item p-0">
+                <div class="row m-0 pset">
+                    <div class="col-4 uinfo m-0 p-0">
+                        <span class="uname">{{ app.user.username }}</span>
+                    </div>
+                    <div class="col-4 uprof text-center">
+                        <a class="plink" href="{{ path('fos_user_profile_show') }}">
+                            <i class="fas fa-plus-circle"></i>
+                            <img class="acc" src="{{ asset('assets/img/unknown.png') }}">
+                        </a>
+                    </div>
+                    <div class="col-4 uinfo m-0 p-0">
+                        <a class="nav-link active logout" href="{{ path('fos_user_security_logout') }}"
+                           style="color: black;">Logout</a>
+                    </div>
+                </div>
+            </li>
+            <div class="progress">
+                {% set quota = user_business.quota(app.user) %}
+                {% set current_percentage = 100 * quota/ app.user.offer.quota %}
+                <div class="progress-bar" role="progressbar" style="width:{{ current_percentage }}%;"
+                     aria-valuenow="100"
+                     aria-valuemin="0" aria-valuemax="100">
+                    <span class="pourcent">{{ current_percentage|round(2) }}%</span>
+                </div>
+            </div>
+            <span class="storefill">
+            {% include '@Layout/Widget/Quota/base.html.twig' with {'quota': quota} %}
+                used on {% include '@Layout/Widget/Quota/base.html.twig' with {'quota': app.user.offer.quota} %}, <a
+                        href="{{ path('app_home_home_index') }}#Prices" target="_blank">want more ?</a>
+		</span>
+            <div class="treeview">
+                <ul class="list-group">
+                    {% if parent is defined %}
+                        {% set folder = parent %}
+                    {% endif %}
+                    {% if folder is defined %}
+                        {% if folder is not null %}
+                            <a class="foldertree"
+                               href="{% if folder.parent is null %}{{ path('app_folder_showing_show_root') }}{% else %}{{ path('app_folder_showing_show', {'id': folder.parent.id}) }}{% endif %}">
+                                <div class="foldertreeall">
+                                    <li>
+                                        <i class="far fa-folder fa-fw"></i>
+                                        <span class="test">../</span>
+                                    </li>
+                                </div>
+                            </a>
+                            <a class="foldertree" href="">
+                                <div class="foldertreeall">
+                                    <li class="">
+                                        <i class="far fa-folder fa-fw"></i>
+                                        <span class="test">{{ folder.name }}</span>
+                                    </li>
+                                </div>
+                            </a>
+                        {% endif %}
+                        <ul class="list-group">
+                            {% for sub_folder in folders %}
+                                {% set isAFile =  sub_folder is instanceof('AppBundle\\Entity\\File') %}
+                                <a class="elementinside"
+                                   href="{% if isAFile %}{{ path('app_file_showing_show', {'id': sub_folder.id}) }}{% else %}{{ path('app_folder_showing_show', {'id': sub_folder.id}) }}{% endif %}">
+                                    <div class="elementpack">
+                                        <li class="">
+                                            {% if isAFile %}
+                                                {% set absolutePath = file_business.getFilePath(sub_folder) %}
+                                                {% if absolutePath is video %}
+                                                    <i class="far fa-file-video fa-fw"></i>
+                                                {% elseif absolutePath is image %}
+                                                    <i class="far fa-file-image fa-fw"></i>
+                                                {% elseif absolutePath is audio %}
+                                                    <i class="far fa-file-audio fa-fw"></i>
+                                                {% elseif absolutePath is text %}
+                                                    <i class="far fa-file-alt fa-fw"></i>
+                                                {% else %}
+                                                    <i class="far fa-file fa-fw"></i>
+                                                {% endif %}
+                                            {% else %}
+                                                <i class="far fa-folder fa-fw"></i>
+                                            {% endif %}
+                                            <span class="treetext">{{ sub_folder.name }}</span>
+                                        </li>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </ul>
+            </div>
+        </ul>
+    </div>
+</div>

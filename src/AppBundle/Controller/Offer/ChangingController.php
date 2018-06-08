@@ -15,8 +15,7 @@ class ChangingController extends Controller
         $user = $this->getUser();
         if ($user->getOffer()) {
             if($user->getOffer()->getPrice() > $offer->getPrice()) {
-                $offer = null;
-                return $this->render('@Page/Offer/Changing/change.html.twig');
+                $offer = $user->getOffer();
             }
         }
         $user->setOffer($offer);
@@ -25,8 +24,6 @@ class ChangingController extends Controller
         $em->persist($user);
         $em->flush();
 
-        return $this->render('@Page/Offer/Changing/change.html.twig', array(
-            'offer' => $offer,
-        ));
+        return $this->redirectToRoute('app_folder_showing_show_root');
     }
 }

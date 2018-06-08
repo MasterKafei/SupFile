@@ -7,3 +7,8 @@ services:
     app.util.token_generator:
         class: AppBundle\Service\Util\TokenGenerator
         public: true
+
+    app.util.console:
+        class: AppBundle\Service\Util\Console\Console
+        parent: app.util.abstract_container_aware
+        public: true
