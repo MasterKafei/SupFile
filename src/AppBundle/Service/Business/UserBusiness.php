@@ -24,6 +24,7 @@ class UserBusiness extends AbstractContainerAware
             $quota += intval((new \Symfony\Component\HttpFoundation\File\File($businessFile->getFilePath($file)))->getSize());
         }
 
-        return round(($quota/(1000 * 1000)));
+        $quota = round(($quota/(1000 * 1000)));
+        return $quota;
     }
 }

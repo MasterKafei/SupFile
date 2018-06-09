@@ -22,16 +22,12 @@
             </li>
             {% set menu_items = [
                 {
-                    'route': 'app_home_home_information',
-                    'title': 'Informations'
-                },
-                {
                     'route': 'fos_user_registration_register',
-                    'title': 'Register'
+                    'title': 'Registration'
                 },
                 {
                     'route': 'fos_user_security_login',
-                    'title': 'Login'
+                    'title': 'Authentication'
                 }
             ] %}
             {% for item in menu_items %}

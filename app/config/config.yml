@@ -41,6 +41,7 @@ twig:
     globals:
         file_business: '@app.business.file'
         user_business: '@app.business.user'
+        console_util: '@app.util.console'
         facebook_id: '%facebook_id%'
         google_id: '%google_id%'
 

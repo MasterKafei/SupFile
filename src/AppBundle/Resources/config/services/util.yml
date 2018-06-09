@@ -12,3 +12,5 @@ services:
         class: AppBundle\Service\Util\Console\Console
         parent: app.util.abstract_container_aware
         public: true
+        calls:
+            - [setSession, ['@session']]

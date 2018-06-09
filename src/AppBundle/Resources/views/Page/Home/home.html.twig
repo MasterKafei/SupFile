@@ -63,14 +63,6 @@
             <div id="Prices" class="col-12 text-center">
                 <h1><u>Prices</u></h1>
                 <div class="row p-5 m-0 pricesrow">
-                    <div class="col-12 colprice">
-                        <div class="linkprice">
-                            <div class="squarepricefree">
-                                <h1 class="pricesize">30 Go</h1>
-                                <span class="price">Free</span>
-                            </div>
-                        </div>
-                    </div>
                     {% for offer in offers %}
                         {% include '@Layout/Widget/Offer/base.html.twig' with {'offer': offer} %}
                     {% endfor %}

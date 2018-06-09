@@ -2,18 +2,18 @@ app_home_home_index:
     path: /
     defaults:  { _controller: 'AppBundle:Home/Home:home' }
 
-app_home_home_information:
-    path: /information
-    defaults: { _controller: 'AppBundle:Home\Home:information' }
-
-app_home_home_policy:
-    path: /policy
-    defaults: { _controller: 'AppBundle:Home\Home:information' }
-
-app_home_home_agreement:
-    path: /agreement
-    defaults: { _controller: 'AppBundle:Home\Home:agreement' }
-
-app_home_home_acceptable_use:
-    path: /acceptable-use
-    defaults: { _controller: 'AppBundle:Home\Home:acceptableUse' }
+#app_home_home_information:
+#    path: /information
+#    defaults: { _controller: 'AppBundle:Home\Home:information' }
+#
+#app_home_home_policy:
+#    path: /policy
+#    defaults: { _controller: 'AppBundle:Home\Home:information' }
+#
+#app_home_home_agreement:
+#    path: /agreement
+#    defaults: { _controller: 'AppBundle:Home\Home:agreement' }
+#
+#app_home_home_acceptable_use:
+#    path: /acceptable-use
+#    defaults: { _controller: 'AppBundle:Home\Home:acceptableUse' }

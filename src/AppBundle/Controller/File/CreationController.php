@@ -27,7 +27,7 @@ class CreationController extends Controller
 
             $quota = round(intval($file->getFile()->getSize())/(1000 * 1000));
             $quota += intval($this->get('app.business.user')->getQuota($this->getUser()));
-            if ($quota > $this->getUser()->getOffer()->getQuota() * 1000) {
+            if ($quota > $this->getUser()->getOffer()->getQuota()) {
                 $this->get('app.util.console')->add('Not enough space for your current Offer', Message::TYPE_WARNING);
             } else {
                 $file->setOwner($this->getUser());
